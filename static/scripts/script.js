@@ -25,7 +25,7 @@ $(function(){
       });
       $('#post-list').append(newPost);
       $(newPost).find('.title').on('click', function(){
-        $('.blog-info').css('visibility', 'visible');
+        $(this).nextAll().css('visibility', 'visible');
       });
     });
   });
