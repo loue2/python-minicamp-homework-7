@@ -39,6 +39,20 @@ def getPosts():
     connection.close()
     return jsonify(postsList)
 
+@app.route('/delete/<post_id>')
+def deletePost(post_id):
+    connection = sqlite3.connect('database.db')
+    cursor = connection.cursor()
+    try:
+        cursor.execute('DELETE FROM posts WHERE id=?' , (post_id))
+        connection.commit()
+    except Exception as err:
+        print(err)
+        connection.rollback()
+    finally:
+        connection.close()
+        return post_id + 'successfully deleted'
+
 @app.route('/like/<post_id>')
 def likePost(post_id):
     connection = sqlite3.connect('database.db')

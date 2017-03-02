@@ -1,3 +1,7 @@
 body {
   background: whitesmoke;
 }
+
+.blog-info {
+  visibility: hidden;
+}
